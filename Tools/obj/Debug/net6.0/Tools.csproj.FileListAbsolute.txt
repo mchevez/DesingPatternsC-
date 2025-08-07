@@ -1,0 +1,22 @@
+E:\1 PERSONAL\8 PRACTICAS\DesingPattern\Tools\bin\Debug\net6.0\Tools.deps.json
+E:\1 PERSONAL\8 PRACTICAS\DesingPattern\Tools\bin\Debug\net6.0\Tools.dll
+E:\1 PERSONAL\8 PRACTICAS\DesingPattern\Tools\bin\Debug\net6.0\Tools.pdb
+E:\1 PERSONAL\8 PRACTICAS\DesingPattern\Tools\obj\Debug\net6.0\Tools.GeneratedMSBuildEditorConfig.editorconfig
+E:\1 PERSONAL\8 PRACTICAS\DesingPattern\Tools\obj\Debug\net6.0\Tools.AssemblyInfoInputs.cache
+E:\1 PERSONAL\8 PRACTICAS\DesingPattern\Tools\obj\Debug\net6.0\Tools.AssemblyInfo.cs
+E:\1 PERSONAL\8 PRACTICAS\DesingPattern\Tools\obj\Debug\net6.0\Tools.csproj.CoreCompileInputs.cache
+E:\1 PERSONAL\8 PRACTICAS\DesingPattern\Tools\obj\Debug\net6.0\Tools.dll
+E:\1 PERSONAL\8 PRACTICAS\DesingPattern\Tools\obj\Debug\net6.0\refint\Tools.dll
+E:\1 PERSONAL\8 PRACTICAS\DesingPattern\Tools\obj\Debug\net6.0\Tools.pdb
+E:\1 PERSONAL\8 PRACTICAS\DesingPattern\Tools\obj\Debug\net6.0\ref\Tools.dll
+D:\8 PRACTICAS\CSHARP\DesingPattern\Tools\bin\Debug\net6.0\Tools.deps.json
+D:\8 PRACTICAS\CSHARP\DesingPattern\Tools\bin\Debug\net6.0\Tools.dll
+D:\8 PRACTICAS\CSHARP\DesingPattern\Tools\bin\Debug\net6.0\Tools.pdb
+D:\8 PRACTICAS\CSHARP\DesingPattern\Tools\obj\Debug\net6.0\Tools.GeneratedMSBuildEditorConfig.editorconfig
+D:\8 PRACTICAS\CSHARP\DesingPattern\Tools\obj\Debug\net6.0\Tools.AssemblyInfoInputs.cache
+D:\8 PRACTICAS\CSHARP\DesingPattern\Tools\obj\Debug\net6.0\Tools.AssemblyInfo.cs
+D:\8 PRACTICAS\CSHARP\DesingPattern\Tools\obj\Debug\net6.0\Tools.csproj.CoreCompileInputs.cache
+D:\8 PRACTICAS\CSHARP\DesingPattern\Tools\obj\Debug\net6.0\Tools.dll
+D:\8 PRACTICAS\CSHARP\DesingPattern\Tools\obj\Debug\net6.0\refint\Tools.dll
+D:\8 PRACTICAS\CSHARP\DesingPattern\Tools\obj\Debug\net6.0\Tools.pdb
+D:\8 PRACTICAS\CSHARP\DesingPattern\Tools\obj\Debug\net6.0\ref\Tools.dll
