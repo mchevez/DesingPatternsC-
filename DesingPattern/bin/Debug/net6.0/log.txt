@@ -1,4 +1,0 @@
-Hola
-En Singleton
-Hola
-En Singleton

@@ -1,4 +1,4 @@
-﻿using DesingPatterns.Models.Data;
+﻿using DesingPattern.Models.Data;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

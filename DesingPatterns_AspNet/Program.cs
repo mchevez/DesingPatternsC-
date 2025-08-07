@@ -1,5 +1,5 @@
+using DesingPattern.Models.Data;
 using DesingPattern.Repository;
-using DesingPatterns.Models.Data;
 using DesingPatterns_AspNet.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Tools.Earn;
@@ -32,6 +32,8 @@ builder.Services.AddTransient((factory) => {
 
     return new ForeignEarnFactory(foreignPercentage, extra);
 });
+
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();
 

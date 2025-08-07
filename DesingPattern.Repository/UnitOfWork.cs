@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DesingPattern.Repository
 {
-    public class UnitOfWork
+    public class UnitOfWork: IUnitOfWork
     {
         private DesignPatternsContext _context;
         public IRepository<Beer> _beers;

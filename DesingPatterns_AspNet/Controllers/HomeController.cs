@@ -1,5 +1,6 @@
 ﻿using DesingPattern.Repository;
-using DesingPatterns.Models.Data;
+//using DesingPatterns.Models.Data;
+using DesingPattern.Models.Data;
 using DesingPatterns_AspNet.Configuration;
 using DesingPatterns_AspNet.Models;
 using Microsoft.AspNetCore.Mvc;
