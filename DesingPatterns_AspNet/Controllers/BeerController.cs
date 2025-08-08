@@ -1,6 +1,7 @@
 ﻿using DesingPattern.Repository;
 using DesingPatterns_AspNet.Models.ViewsModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace DesingPatterns_AspNet.Controllers
 {
@@ -21,6 +22,25 @@ namespace DesingPatterns_AspNet.Controllers
                                                };
 
             return View("Index", beers);
+        }
+
+        [HttpGet]
+        public IActionResult Add() 
+        {
+            var brands = _unitOfWork.Brands.Get();
+            ViewBag.Brands = new SelectList(brands, "BrandId", "Name");
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Add(FormViewModel beerVM) {
+
+            if (!ModelState.IsValid) {
+                var brands = _unitOfWork.Brands.Get();
+                ViewBag.Brands = new SelectList(brands, "BrandId", "Name");
+                return View("Add", beerVM);
+            }
+
+            return View();
         }
     }
 }
