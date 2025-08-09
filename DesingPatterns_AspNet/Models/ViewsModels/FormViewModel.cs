@@ -13,6 +13,6 @@ namespace DesingPatterns_AspNet.Models.ViewsModels
         [Display(Name = "Marca")]
         public Guid? BrandId { get; set; }
         [Display(Name = "Otra Marca")]
-        public string OtherBrand { get; set; }
+        public string? OtherBrand { get; set; }
     }
 }

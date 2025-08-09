@@ -1,4 +1,5 @@
-﻿using DesingPattern.Repository;
+﻿using DesingPattern.Models.Data;
+using DesingPattern.Repository;
 using DesingPatterns_AspNet.Models.ViewsModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -40,7 +41,24 @@ namespace DesingPatterns_AspNet.Controllers
                 return View("Add", beerVM);
             }
 
-            return View();
+            var beer = new Beer();
+            beer.Name = beerVM.Name;
+            beer.Style = beerVM.Style;
+
+            beer.BrandId = beerVM.BrandId == null? Guid.NewGuid() : (Guid)beerVM.BrandId;
+            
+            if (beerVM.BrandId == null)
+            {
+                var brand = new Brand();
+                brand.Name = beerVM.OtherBrand;
+                brand.BrandId = beer.BrandId;
+                _unitOfWork.Brands.Add(brand);
+            }
+           
+            _unitOfWork.Beers.Add(beer);
+            _unitOfWork.Save();
+            
+            return RedirectToAction("Index");
         }
     }
 }
