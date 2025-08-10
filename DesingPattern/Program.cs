@@ -3,6 +3,7 @@ using DesingPattern.Factory;
 using DesingPattern.Models;
 using DesingPattern.Repository;
 using DesingPattern.Singleton;
+using DesingPattern.Strategy;
 using DesingPattern.UnitOfWork;
 
 // Implementacion del patron de diseño Singleton
@@ -88,32 +89,41 @@ using DesingPattern.UnitOfWork;
 //}
 
 //-------- EJEMPLO DEL USO DEL PATRON UNITOFWORK ---------//
-using (var context = new DesignPatternsContext())
-{
+//using (var context = new DesignPatternsContext())
+//{
 
-    var unitOfWork = new UnitOfWork(context);
-    var beers = unitOfWork.Beers;
+//    var unitOfWork = new UnitOfWork(context);
+//    var beers = unitOfWork.Beers;
 
-    var idBrand = Guid.NewGuid();
+//    var idBrand = Guid.NewGuid();
 
-    var beer = new Beer()
-    {
-        Name = "Fuller 2",
-        Style = "Potter 2",
-        BrandId = idBrand,//Guid.Parse("009238f2-1dc1-45ab-a6e7-720128d648dd"),
-    };
+//    var beer = new Beer()
+//    {
+//        Name = "Fuller 2",
+//        Style = "Potter 2",
+//        BrandId = idBrand,//Guid.Parse("009238f2-1dc1-45ab-a6e7-720128d648dd"),
+//    };
 
-    beers.Add(beer);
+//    beers.Add(beer);
 
-    var brands = unitOfWork.Brands;
-    var brand = new Brand()
-    {
-        BrandId = idBrand,
-        Name = "Fuller 2"
-    };
+//    var brands = unitOfWork.Brands;
+//    var brand = new Brand()
+//    {
+//        BrandId = idBrand,
+//        Name = "Fuller 2"
+//    };
 
-    brands.Add(brand);
-    unitOfWork.Save();
-}
+//    brands.Add(brand);
+//    unitOfWork.Save();
+//}
+
+//-------- EJEMPLO DEL USO DEL PATRON STRATEGY ---------//
+
+var context = new Context(new CarStrategy());
+context.Run();
+context.Strategy = new MotoStrategy();
+context.Run();
+context.Strategy = new BicycleStrategy();
+context.Run();
 
 Console.ReadLine();
