@@ -1,6 +1,7 @@
 ﻿using DesingPattern.Models.Data;
 using DesingPattern.Repository;
 using DesingPatterns_AspNet.Models.ViewsModels;
+using DesingPatterns_AspNet.Strategies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -28,37 +29,31 @@ namespace DesingPatterns_AspNet.Controllers
         [HttpGet]
         public IActionResult Add() 
         {
-            var brands = _unitOfWork.Brands.Get();
-            ViewBag.Brands = new SelectList(brands, "BrandId", "Name");
+            GetBrandsData();
             return View();
         }
         [HttpPost]
         public IActionResult Add(FormViewModel beerVM) {
 
             if (!ModelState.IsValid) {
-                var brands = _unitOfWork.Brands.Get();
-                ViewBag.Brands = new SelectList(brands, "BrandId", "Name");
+                GetBrandsData();
                 return View("Add", beerVM);
             }
 
-            var beer = new Beer();
-            beer.Name = beerVM.Name;
-            beer.Style = beerVM.Style;
+            var context = beerVM.BrandId == null ?
+                            new BeerContext(new BeerWithBrandStrategy()) :
+                            new BeerContext(new BeerStrategy());
 
-            beer.BrandId = beerVM.BrandId == null? Guid.NewGuid() : (Guid)beerVM.BrandId;
-            
-            if (beerVM.BrandId == null)
-            {
-                var brand = new Brand();
-                brand.Name = beerVM.OtherBrand;
-                brand.BrandId = beer.BrandId;
-                _unitOfWork.Brands.Add(brand);
-            }
-           
-            _unitOfWork.Beers.Add(beer);
-            _unitOfWork.Save();
+            context.Add(beerVM, _unitOfWork);
             
             return RedirectToAction("Index");
         }
+
+        #region HELPERS
+        private void GetBrandsData() {
+            var brands = _unitOfWork.Brands.Get();
+            ViewBag.Brands = new SelectList(brands, "BrandId", "Name");
+        }
+        #endregion
     }
 }
