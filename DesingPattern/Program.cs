@@ -1,4 +1,5 @@
 ﻿//using DesingPattern.DependencyInjection;
+using DesingPattern.Builder;
 using DesingPattern.Factory;
 using DesingPattern.Models;
 using DesingPattern.Repository;
@@ -119,11 +120,28 @@ using DesingPattern.UnitOfWork;
 
 //-------- EJEMPLO DEL USO DEL PATRON STRATEGY ---------//
 
-var context = new Context(new CarStrategy());
-context.Run();
-context.Strategy = new MotoStrategy();
-context.Run();
-context.Strategy = new BicycleStrategy();
-context.Run();
+//var context = new Context(new CarStrategy());
+//context.Run();
+//context.Strategy = new MotoStrategy();
+//context.Run();
+//context.Strategy = new BicycleStrategy();
+//context.Run();
+
+//-------- EJEMPLO DEL USO DEL PATRON BUILDER ---------//
+
+var builder = new PreparedAlcoholicDrinkConcreteBuilder();
+var barmandirector = new BarmanDirector(builder);
+
+Console.WriteLine("//----- MARGARITA -----//");
+barmandirector.PreparedMargarita(); // LA RECETA MARGARITA
+
+var preparedDrink = builder.GetPreparedDrink();
+Console.WriteLine(preparedDrink.Result);
+
+Console.WriteLine("//----- PIÑA COLADA -----//");
+barmandirector.PreparedPinaColada(); // LA RECETA PIÑA COLADDA
+
+preparedDrink = builder.GetPreparedDrink();
+Console.WriteLine(preparedDrink.Result);
 
 Console.ReadLine();
