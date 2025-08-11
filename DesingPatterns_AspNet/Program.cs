@@ -3,6 +3,7 @@ using DesingPattern.Repository;
 using DesingPatterns_AspNet.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Tools.Earn;
+using Tools.Generator;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,6 +35,7 @@ builder.Services.AddTransient((factory) => {
 });
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<GeneratorConcreteBuilder>();
 
 var app = builder.Build();
 

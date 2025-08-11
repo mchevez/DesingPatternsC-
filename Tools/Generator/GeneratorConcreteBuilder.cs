@@ -18,7 +18,7 @@ namespace Tools.Generator
 
         public void SetPath(string path) => _generator.Path = path;
 
-        public void SetFormat(TypeFormat format) => _generator.TypeFormat = format;
+        public void SetFormat(TypeFormat format) => _generator.Format = format;
 
         public void SetCharacter(TypeCharacter character = TypeCharacter.Normal) => 
             _generator.Character = character;
