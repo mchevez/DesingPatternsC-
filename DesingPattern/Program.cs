@@ -4,6 +4,7 @@ using DesingPattern.Factory;
 using DesingPattern.Models;
 using DesingPattern.Repository;
 using DesingPattern.Singleton;
+using DesingPattern.State;
 using DesingPattern.Strategy;
 using DesingPattern.UnitOfWork;
 
@@ -129,19 +130,38 @@ using DesingPattern.UnitOfWork;
 
 //-------- EJEMPLO DEL USO DEL PATRON BUILDER ---------//
 
-var builder = new PreparedAlcoholicDrinkConcreteBuilder();
-var barmandirector = new BarmanDirector(builder);
+//var builder = new PreparedAlcoholicDrinkConcreteBuilder();
+//var barmandirector = new BarmanDirector(builder);
 
-Console.WriteLine("//----- MARGARITA -----//");
-barmandirector.PreparedMargarita(); // LA RECETA MARGARITA
+//Console.WriteLine("//----- MARGARITA -----//");
+//barmandirector.PreparedMargarita(); // LA RECETA MARGARITA
 
-var preparedDrink = builder.GetPreparedDrink();
-Console.WriteLine(preparedDrink.Result);
+//var preparedDrink = builder.GetPreparedDrink();
+//Console.WriteLine(preparedDrink.Result);
 
-Console.WriteLine("//----- PIÑA COLADA -----//");
-barmandirector.PreparedPinaColada(); // LA RECETA PIÑA COLADDA
+//Console.WriteLine("//----- PIÑA COLADA -----//");
+//barmandirector.PreparedPinaColada(); // LA RECETA PIÑA COLADDA
 
-preparedDrink = builder.GetPreparedDrink();
-Console.WriteLine(preparedDrink.Result);
+//preparedDrink = builder.GetPreparedDrink();
+//Console.WriteLine(preparedDrink.Result);
 
-Console.ReadLine();
+//Console.ReadLine();
+
+//-------- EJEMPLO DEL USO DEL PATRON STATE ---------//
+
+var customerContext = new CustomerContext();
+Console.WriteLine(customerContext.GetState());
+customerContext.Request(100);
+Console.WriteLine(customerContext.GetState());
+
+customerContext.Request(50);
+Console.WriteLine(customerContext.GetState());
+
+customerContext.Request(100);
+Console.WriteLine(customerContext.GetState());
+
+customerContext.Request(50);
+Console.WriteLine(customerContext.GetState());
+
+customerContext.Request(50);
+Console.WriteLine(customerContext.GetState());
